@@ -21,7 +21,7 @@ public class GoogleSearchSteps {
 		String projectPath = System.getProperty("user.dir");
 		System.out.println("Project path is : "+projectPath);
 		
-		System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/resources/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/resources/drivers/chromedriver");
 		
 		driver = new ChromeDriver();
 		
