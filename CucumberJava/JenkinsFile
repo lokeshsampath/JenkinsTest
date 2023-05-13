@@ -18,13 +18,6 @@ pipeline {
                     sh 'mvn clean test'
                 }
             }
-        }
-        stage('Package') {
-            steps {
-                dir("${env.WORKSPACE}/CucumberJava"){
-                    sh 'mvn package -DskipTests'
-                }
-            }
-        }
+        }      
     }
 }
