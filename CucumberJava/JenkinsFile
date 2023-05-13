@@ -1,0 +1,30 @@
+pipeline {
+    agent { label 'jen-node1' }
+    tools {
+      maven 'maven 3.9.1'
+    }
+    stages {
+        stage('Source') {
+            steps {
+                sh 'mvn --version'
+                sh 'git --version'
+                git branch: 'master',
+                    url: 'https://github.com/lokeshsampath/JenkinsTest.git'
+            }
+        }
+        stage('Test') {
+            steps {
+                dir("${env.WORKSPACE}/CucumberJava"){
+                    sh 'mvn clean test'
+                }
+            }
+        }
+        stage('Package') {
+            steps {
+                dir("${env.WORKSPACE}/CucumberJava"){
+                    sh 'mvn package -DskipTests'
+                }
+            }
+        }
+    }
+}
