@@ -12,17 +12,10 @@ pipeline {
                     url: 'https://github.com/lokeshsampath/JenkinsTest.git'
             }
         }
-        stage('Clean') {
-            steps {
-                dir("${env.WORKSPACE}/CucumberJava"){
-                    sh 'mvn clean'
-                }
-            }
-        }
         stage('Test') {
             steps {
                 dir("${env.WORKSPACE}/CucumberJava"){
-                    sh 'mvn test'
+                    sh 'mvn clean test'
                 }
             }
         }
