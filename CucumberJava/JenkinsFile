@@ -1,6 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.9.1' 
-                      args '-u root'  } }    
+    agent { dockerfile true }
     stages {
         stage('Source') {
             steps {
