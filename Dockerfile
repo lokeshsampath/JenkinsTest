@@ -13,8 +13,8 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY . /app
+COPY --chown=root:root . /app
 
-RUN cd /app && chmod 777 *
+RUN chmod 777 /app
 
 #RUN cp -pR /chromedriver/chromedriver /app/src/test/resources/drivers/chromedriver
