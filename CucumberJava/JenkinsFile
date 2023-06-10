@@ -11,10 +11,8 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                dir(path: '/app'){
-                    sh 'mvn clean test'
-                }
+            steps {                
+                    sh ' cd /app ; mvn clean test'                
             }
         }      
     }
