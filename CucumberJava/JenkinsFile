@@ -1,5 +1,6 @@
 pipeline {
-    agent { dockerfile true }
+    agent { dockerfile true 
+            args '-v ${env.WORKSPACE}/CucumberJava:/app' }
     stages {
         stage('Source') {
             steps {
@@ -11,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir("${env.WORKSPACE}/CucumberJava"){
+                dir(path: '/app'){
                     sh 'mvn clean test'
                 }
             }
