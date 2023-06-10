@@ -12,3 +12,7 @@ RUN apt-get update && \
     unzip /chromedriver/chromedriver* -d /chromedriver
 
 WORKDIR /app
+
+COPY . /app
+
+COPY /chromedriver /app/src/test/resources/drivers/chromedriver
