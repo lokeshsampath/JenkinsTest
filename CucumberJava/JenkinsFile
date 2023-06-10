@@ -1,6 +1,6 @@
 pipeline {
     agent { dockerfile true 
-            args '-v ${env.WORKSPACE}/CucumberJava:/app' }
+             }
     stages {
         stage('Source') {
             steps {
