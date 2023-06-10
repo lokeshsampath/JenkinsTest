@@ -15,4 +15,6 @@ WORKDIR /app
 
 COPY . /app
 
+RUN cd /app && chmod 777 *
+
 #RUN cp -pR /chromedriver/chromedriver /app/src/test/resources/drivers/chromedriver
