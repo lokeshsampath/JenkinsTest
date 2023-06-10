@@ -15,4 +15,4 @@ WORKDIR /app
 
 COPY . /app
 
-COPY /chromedriver/chromedriver /app/src/test/resources/drivers/
+RUN cp /chromedriver/chromedriver /app/src/test/resources/drivers/
