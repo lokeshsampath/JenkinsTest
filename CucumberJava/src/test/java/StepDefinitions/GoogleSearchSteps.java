@@ -24,7 +24,7 @@ public class GoogleSearchSteps {
 		
 		System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/resources/drivers/chromedriver");
 		
-		ChromeOptions cOptions = new ChromeOptions();
+		ChromeOptions options = new ChromeOptions();
 		options.add_argument("--disable-dev-shm-usage");
 			options.add_argument("--ignore-ssl-errors=yes");
 			options.add_argument("--ignore-certificate-errors");
