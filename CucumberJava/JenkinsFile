@@ -19,6 +19,7 @@ pipeline {
             steps {   
                     dir("${env.WORKSPACE}/CucumberJava")
                     {
+                    sh "chmod +x -R /src/test/resources/drivers/chromedriver"
                     sh 'mvn -e clean test' }
             }
         }      
