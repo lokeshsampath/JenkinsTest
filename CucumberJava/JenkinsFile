@@ -2,7 +2,7 @@ pipeline {
     agent { 
      dockerfile
             { filename 'Dockerfile'
-              args '-u root -v /ms/rep:/root/.m2/repository'   
+              args '-u root -v /root/.m2:/root/.m2/repository'   
             
             }
           }
