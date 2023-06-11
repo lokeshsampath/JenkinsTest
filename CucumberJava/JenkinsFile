@@ -16,8 +16,7 @@ pipeline {
             }
         }
         stage('Test') {
-            steps { 
-                    sh 'cp -pR /chromedriver/chromedriver /app/src/test/resources/drivers/' 
+            steps {                     
                     sh ' cd /app/CucumberJava ; mvn -e clean test'                
             }
         }      
