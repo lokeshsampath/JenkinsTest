@@ -25,14 +25,7 @@ public class GoogleSearchSteps {
 		System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/resources/drivers/chromedriver");
 		
 		ChromeOptions options = new ChromeOptions();
-		options.add_argument("--disable-dev-shm-usage");
-			options.add_argument("--ignore-ssl-errors=yes");
-			options.add_argument("--ignore-certificate-errors");
-		options.add_argument("--headless=new");
-		options.add_argument("--disable-extensions");
-		options.add_argument("--allow-insecure-localhost");
-		options.add_argument("--window-size=1280,800");
-		options.add_argument("--no-sandbox");
+		options.addArguments(new String[]{"--disable-dev-shm-usage","--ignore-ssl-errors=yes","--ignore-certificate-errors","--headless=new","--disable-extensions","--allow-insecure-localhost","--window-size=1280,800","--no-sandbox"});	
 		
 		
 		driver = new ChromeDriver(options);
