@@ -17,6 +17,4 @@ RUN chmod 777 /app
 
 COPY . /app
 
-RUN chmod +x /app/src/test/resources/drivers/chromedriver
-
 #RUN cp -pR /chromedriver/chromedriver /app/src/test/resources/drivers/chromedriver
