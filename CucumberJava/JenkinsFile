@@ -1,6 +1,11 @@
 pipeline {
-    agent { dockerfile true 
-             }
+    agent { 
+     dockerfile
+            { filename 'Dockerfile'
+              args '-u root -v /ms/rep:/root/.m2/repository'   
+            
+            }
+          }
     stages {
         stage('Source') {
             steps {
@@ -11,7 +16,8 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {                
+            steps { 
+                    sh 'cp -pR /chromedriver/chromedriver /app/src/test/resources/drivers/' 
                     sh ' cd /app/CucumberJava ; mvn -e clean test'                
             }
         }      
