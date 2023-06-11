@@ -22,6 +22,25 @@ pipeline {
                     sh "chmod +x src/test/resources/drivers/chromedriver"
                     sh 'mvn -e clean test' }
             }
-        }      
+        } 
+        stage("Reports") {
+      steps {
+         dir("${env.WORKSPACE}/CucumberJava") 
+         {
+        cucumber buildStatus: 'null',
+          customCssFiles: '',
+          customJsFiles: '',
+          failedFeaturesNumber: -1,
+          failedScenariosNumber: -1,
+          failedStepsNumber: -1,
+          fileIncludePattern: '**/*.json',
+          jsonReportDirectory: 'target/JSONReports',
+          pendingStepsNumber: -1,
+          skippedStepsNumber: -1,
+          sortingMethod: 'ALPHABETICAL',
+          undefinedStepsNumber: -1
+          }
+      }
+    }
     }
 }
