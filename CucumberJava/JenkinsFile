@@ -18,7 +18,8 @@ pipeline {
         stage('Test') {
             steps {   
                     dir("${env.WORKSPACE}/CucumberJava")
-                    sh 'mvn -e clean test'                
+                    {
+                    sh 'mvn -e clean test' }
             }
         }      
     }
