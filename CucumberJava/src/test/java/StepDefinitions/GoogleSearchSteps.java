@@ -2,6 +2,7 @@ package StepDefinitions;
 
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,9 @@ public class GoogleSearchSteps {
 		String projectPath = System.getProperty("user.dir");
 		System.out.println("Project path is : "+projectPath);
 		
-		System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/resources/drivers/chromedriver");
+		//System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/resources/drivers/chromedriver");
+
+		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments(new String[]{"--disable-dev-shm-usage","--ignore-ssl-errors=yes","--ignore-certificate-errors","--headless=new","--disable-extensions","--allow-insecure-localhost","--window-size=1280,800","--no-sandbox"});	
