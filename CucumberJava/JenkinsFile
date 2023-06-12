@@ -6,6 +6,22 @@ pipeline {
             
             }
           }
+          
+    parameters {
+        choice(choices: getDates(),
+                description: 'Select a date',
+                name: 'JOB_DATE')
+        choice(name: "TEST_CHOICE",
+                description: "Choose a test tag to execute.",
+                choices: ["FullSanityTest", "IndexCalculationTest", "ETLFileLoadTest", "SecurityCalculationTest", "ScreeningDiscoverDataTest", "ReportGenerationTest", "ReportConsoleUITest", "EODDashBoardTest", "EODCalibrationTest", "DataValidationJobTest", "MongoDBReadCheck", "T3ReportGenTest", "DataServicesAPITest", "RWTest", "ROTest"])
+        choice(choices: ['prod', 'preprod', 'qa', 'qa2'],
+                description: 'Test Environment',
+                name: 'TEST_ENVIRONMENT')
+        password(name: "APP_KEY",
+                defaultValue: "fierceApp2023",
+                description: "Enter App secretKey")
+
+    }
     stages {
         stage('Source') {
             steps {
