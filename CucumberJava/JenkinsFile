@@ -60,3 +60,13 @@ pipeline {
     }
     }
 }
+
+def getDates() {
+    def startDate = new Date()
+    def dates = []
+    (0..7).each {
+        def date = startDate - it
+        dates << date.format('dd-MMM-yyyy')
+    }
+    return dates.join('\n')
+}
